@@ -6,12 +6,10 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.float :stock
       t.float :ss
       t.integer :deliver_time
-      t.string :supplier
-      t.integer :phone
-      t.string :address
       t.string :level
       t.text :commentary
-
+      t.belongs_to :category, index: true
+      t.belongs_to :supplier, index: true
       t.timestamps
     end
   end

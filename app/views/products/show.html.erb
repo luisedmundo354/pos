@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @product.name %></h1>
+
+<ul>
+  <li><span>Stock: </span><%= @product.stock %></li>
+
+  <li><span>SS: </span><%= @product.ss %></li>
+
+  <li><span>Level: </span><%= @product.level %></li>
+
+  <li><span>Commnetary: </span><%= @product.commentary %></li>
+</ul>
+
+<p><%= link_to 'Return Home', products_path %></p>

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<h1>Create a new Product</h1>
+
+<%= form_with(model: @product, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit, id: :product_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.text_field :stock, id: :product_stock %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ss %>
+    <%= form.text_field :ss, id: :product_ss %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deliver_time %>
+    <%= form.text_field :deliver_time, id: :product_deliver_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supplier %>
+    <%= form.collection_select :supplier_id, Supplier.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.text_field :level, id: :product_level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :commentary %>
+    <%= form.text_area :commentary, id: :portfolio_commentary %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
