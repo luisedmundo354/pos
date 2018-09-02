@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   def index
-    @product_items = Product.all
+    @category_items = Product.select(:category_id).distinct
+    if params[:category]
+      @product_items = Product.where(:category => params[:category])
+    else
+      @product_items = Product.all
+    end
   end
 
   def new
