@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :category_id, :supplier_id, :level, :commentary))
+    @product = Product.new(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :category_id, :supplier_id, :commentary))
 
     respond_to do |format|
       if @product.save
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     respond_to do |format|
-      if @product.update(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :supplier_id, :level, :category_id ,:commentary))
+      if @product.update(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :supplier_id, :category_id ,:commentary))
         format.html { redirect_to product_path, notice: 'Product was successfully updated.' }
       else
         format.html { render :edit }
