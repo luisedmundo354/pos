@@ -2,52 +2,52 @@
 <h1>Create a new Product</h1>
 
 <%= form_with(model: @product, local: true) do |form| %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :product_name %>
+    <%= form.text_field :name, id: :product_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :unit %>
-    <%= form.text_field :unit, id: :product_unit %>
+    <%= form.text_field :unit, id: :product_unit, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :stock %>
-    <%= form.text_field :stock, id: :product_stock %>
+    <%= form.text_field :stock, id: :product_stock, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :ss %>
-    <%= form.text_field :ss, id: :product_ss %>
+    <%= form.text_field :ss, id: :product_ss, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :deliver_time %>
-    <%= form.text_field :deliver_time, id: :product_deliver_time %>
+    <%= form.text_field :deliver_time, id: :product_deliver_time, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :supplier %>
-    <%= form.collection_select :supplier_id, Supplier.all, :id, :name, prompt: true %>
+    <%= form.collection_select :supplier_id, Supplier.all, :id, :name, {prompt: true}, {:class=>"form-control"}  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :level %>
-    <%= form.text_field :level, id: :product_level %>
+    <%= form.text_field :level, id: :product_level, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :category %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: true}, {:class=>"form-control"}  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :commentary %>
-    <%= form.text_area :commentary, id: :portfolio_commentary %>
+    <%= form.text_area :commentary, id: :portfolio_commentary, class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class=>"btn btn-primary"%>
   </div>
 <% end %>
