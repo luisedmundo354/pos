@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  before_action :set_supplier, only: [:show, :edit, :update, :destroy]
+
   def index
 	@supplier_items = Supplier.all
   end
@@ -8,7 +10,7 @@ class SuppliersController < ApplicationController
  end
 
  def create
-   @supplier = Supplier.new(params.require(:supplier).permit(:name, :phone, :address))
+   @supplier = Supplier.new(supplier_params)
 
    respond_to do |format|
      if @supplier.save
@@ -20,13 +22,11 @@ class SuppliersController < ApplicationController
  end
 
  def edit
-   @supplier = Supplier.find(params[:id])
  end
 
  def update
-   @supplier = Supplier.find(params[:id])
    respond_to do |format|
-     if @supplier.update(params.require(:supplier).permit(:name, :phone, :address))
+     if @supplier.update(supplier_params)
        format.html { redirect_to supplier_path, notice: 'Supplier was successfully updated.' }
      else
        format.html { render :edit }
@@ -35,12 +35,9 @@ class SuppliersController < ApplicationController
  end
 
  def show
-   @supplier = Supplier.find(params[:id])
  end
 
  def destroy
-   #Perform the lookup
-   @supplier = Supplier.find(params[:id])
    #Destroy/delete the record
    @supplier.destroy
    #Redirect
@@ -49,7 +46,15 @@ class SuppliersController < ApplicationController
    end
  end
 #This is copyed into the new.permit method
-#  def blog_params
-#    params.require(:blog).permit(:tittle, :body)
-#  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_supplier
+    @supplier = Supplier.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def supplier_params
+    params.require(:supplier).permit(:name, :phone, :address)
+  end
 end

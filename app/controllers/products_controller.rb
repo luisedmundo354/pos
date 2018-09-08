@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @category_items = Product.select(:category_id).distinct
     if params[:category]
@@ -13,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :category_id, :supplier_id, :commentary))
+    @product = Product.new(product_params)
 
     respond_to do |format|
       if @product.save
@@ -25,13 +27,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
     respond_to do |format|
-      if @product.update(params.require(:product).permit(:name, :unit, :stock, :ss, :deliver_time, :supplier_id, :category_id ,:commentary))
+      if @product.update(product_params)
         format.html { redirect_to product_path, notice: 'Product was successfully updated.' }
       else
         format.html { render :edit }
@@ -40,12 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def destroy
-    #Perform the lookup
-    @product = Product.find(params[:id])
     #Destroy/delete the record
     @product.destroy
     #Redirect
@@ -54,7 +51,14 @@ class ProductsController < ApplicationController
     end
   end
   #This is copyed into the new.permit method
-  #  def blog_params
-  #    params.require(:blog).permit(:tittle, :body)
-  #  end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :and, :unit, :stock, :ss, :deliver_time, :order_size, :supplier_id, :category_id ,:commentary)
+  end
 end

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4 text-left">
+    <h1>Customers</h1>
+  </div>
+
+  <div class="col-md-4 offset-md-4 text-right">
+    <%= link_to '<i class="fa fa-plus fa-3x"></i>'.html_safe, new_customer_path %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">DNI</th>
+      <th colspan="3" scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.each do |customer_items| %>
+      <tr>
+        <td><%= customer_items.name %></td>
+        <td><%= link_to 'Show', customer_items %></td>
+        <td><%= link_to "Edit", edit_customer_path(customer_items) %></td>
+        <td><%= link_to 'Destroy', customer_path(customer_items), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

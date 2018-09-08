@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @sale_order.number %></h1>
+
+<ul>
+  <li><span>Comment: </span><%= @sale_order.comment %></li>
+
+  <li><span>Customer: </span><%= @sale_order.customer.fname %></li>
+
+  <% @sale_items.each do |sale_item|%>
+    <li><span>Items: </span><%= sale_item.product.name %></li>
+    <%end%>
+
+</ul>
+
+<p><%= link_to 'Return Home', products_path %></p>

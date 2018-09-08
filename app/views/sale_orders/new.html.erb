@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<h1>Create a new Sale order</h1>
+
+<%= form_with(model: @sale_order, local: true)  do |form| %>
+  <div class="form-group">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :sale_order_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :sale_order_comment, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :customer %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
+  </div>
+
+  <ul>
+    <%= form.fields_for :sale_items do |sale_items_form| %>
+    <li>
+      <%= sale_items_form.label :price %>
+      <%= sale_items_form.text_field :price %>
+    </li>
+    <li>
+      <%= sale_items_form.label :quantity %>
+      <%= sale_items_form.text_field :quantity %>
+    </li>
+    <li>
+      <%= sale_items_form.label :product_id %>
+      <%= sale_items_form.collection_select :product_id, Product.all, :id, :name, {prompt: true}, {:class=>"form-control"} %>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+    <%= form.submit :class=>"btn btn-primary"%>
+  </div>
+<% end %>

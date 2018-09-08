@@ -7,6 +7,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :brand %>
+    <%= form.text_field :brand, id: :product_brand %>
+  </div>
+
+  <div class="field">
     <%= form.label :unit %>
     <%= form.text_field :unit, id: :product_unit %>
   </div>
@@ -24,6 +29,11 @@
   <div class="field">
     <%= form.label :deliver_time %>
     <%= form.text_field :deliver_time, id: :product_deliver_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_size %>
+    <%= form.text_field :order_size, id: :product_order_size %>
   </div>
 
   <div class="field">

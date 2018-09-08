@@ -21,10 +21,12 @@
     <thead>
       <tr>
         <th scope="col">Name</th>
+        <th scope="col">Brand</th>
         <th scope="col">Unit</th>
         <th scope="col">Stock</th>
         <th scope="col">SS</th>
         <th scope="col">Deliver time</th>
+        <th scope="col">Order Size</th>
         <th scope="col">Suppplier</th>
         <th scope="col">Phone</th>
         <th scope="col">Address</th>
@@ -38,10 +40,12 @@
       <% @product_items.each do |product_items|%>
       <tr class="<%= row_class(product_items.level) %>">
         <td><%= product_items.name %></td>
+        <td><%= product_items.brand %></td>
         <td><%= product_items.unit %></td>
         <td><%= product_items.stock %></td>
         <td><%= product_items.ss %></td>
         <td><%= product_items.deliver_time %></td>
+        <td><%= product_items.order_size %></td>
         <td><%= product_items.supplier.name %></td>
         <td><%= product_items.supplier.phone %></td>
         <td><%= product_items.supplier.address %></td>

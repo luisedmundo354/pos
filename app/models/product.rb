@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :supplier
+  has_many :purchase_orders, :through => :purchase_items
+  has_many :purchase_items
+  has_many :sale_orders, :through => :sale_items
+  has_many :sale_items
   before_save :calculate_level
 
 def calculate_level

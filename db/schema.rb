@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_31_045656) do
+ActiveRecord::Schema.define(version: 2018_09_06_220939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,24 @@ ActiveRecord::Schema.define(version: 2018_08_31_045656) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "email"
+    t.integer "phone"
+    t.integer "dni"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.string "brand"
     t.string "unit"
     t.float "stock"
     t.float "ss"
     t.integer "deliver_time"
+    t.integer "order_size"
     t.string "level"
     t.text "commentary"
     t.bigint "category_id"
@@ -37,8 +49,59 @@ ActiveRecord::Schema.define(version: 2018_08_31_045656) do
     t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
+  create_table "purchase_items", force: :cascade do |t|
+    t.float "price"
+    t.integer "quantity"
+    t.bigint "product_id"
+    t.bigint "purchase_order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_purchase_items_on_product_id"
+    t.index ["purchase_order_id"], name: "index_purchase_items_on_purchase_order_id"
+  end
+
+  create_table "purchase_orders", force: :cascade do |t|
+    t.integer "number"
+    t.text "comment"
+    t.bigint "replenisher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["replenisher_id"], name: "index_purchase_orders_on_replenisher_id"
+  end
+
+  create_table "replenishers", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "email"
+    t.integer "phone"
+    t.integer "dni"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sale_items", force: :cascade do |t|
+    t.float "price"
+    t.integer "quantity"
+    t.bigint "product_id"
+    t.bigint "sale_order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sale_items_on_product_id"
+    t.index ["sale_order_id"], name: "index_sale_items_on_sale_order_id"
+  end
+
+  create_table "sale_orders", force: :cascade do |t|
+    t.integer "number"
+    t.text "comment"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sale_orders_on_customer_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
+    t.string "manager"
     t.integer "phone"
     t.string "address"
     t.datetime "created_at", null: false
