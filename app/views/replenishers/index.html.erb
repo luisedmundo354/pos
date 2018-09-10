@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-4 text-left">
+    <h1>Replenishers</h1>
+  </div>
+
+  <div class="col-md-4 offset-md-4 text-right">
+    <%= link_to '<i class="fa fa-plus fa-3x"></i>'.html_safe, new_replenisher_path %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">DNI</th>
+      <th colspan="3" scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @replenisher.each do |replenisher_items| %>
+      <tr>
+        <td><%= replenisher_items.fname %></td>
+        <td><%= replenisher_items.lname %></td>
+        <td><%= replenisher_items.email %></td>
+        <td><%= replenisher_items.phone %></td>
+        <td><%= replenisher_items.dni %></td>
+        <td><%= link_to 'Show', replenisher_items %></td>
+        <td><%= link_to "Edit", edit_replenisher_path(replenisher_items) %></td>
+        <td><%= link_to 'Destroy', replenisher_path(replenisher_items), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

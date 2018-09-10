@@ -25,7 +25,11 @@
   <tbody>
     <% @customer.each do |customer_items| %>
       <tr>
-        <td><%= customer_items.name %></td>
+        <td><%= customer_items.fname %></td>
+        <td><%= customer_items.lname %></td>
+        <td><%= customer_items.email %></td>
+        <td><%= customer_items.phone %></td>
+        <td><%= customer_items.dni %></td>
         <td><%= link_to 'Show', customer_items %></td>
         <td><%= link_to "Edit", edit_customer_path(customer_items) %></td>
         <td><%= link_to 'Destroy', customer_path(customer_items), method: :delete, data: { confirm: 'Are you sure?' } %></td>
