@@ -18,6 +18,7 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+//= require cocoon
 $(document).on('turbolinks:load', function () {
 
     $('#sidebarCollapse').on('click', function () {
