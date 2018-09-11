@@ -1,0 +1,124 @@
+es:
+  hello: "Hola"
+  Name: "Nombre"
+  Brand: "Marca"
+  Unit: "Unidad"
+  Stock: "Stock"
+  SS: "Stock de seguridad"
+  Deliver_time: "Tiempo de entrega"
+  Order_size: "Tamaño de pedido"
+  Supplier: "Proveedor"
+  Phone: "Teléfono"
+  Address: "Dirección"
+  Level: "Nivel"
+  Category: "Categoría"
+  Sale_orders: "Órdenes de venta"
+  Purchase_orders: "Ordenes de compra"
+  Products: "Productos"
+  Categories: "Categorias"
+  Suppliers: "Proveedores"
+  Customers: "Clientes"
+  Reponedores: "Reponedores"
+  first_name: "Nombres"
+  last_name: "Apellidos"
+  Email: "Email"
+  DNI: "DNI"
+  Replenishers: "Reponedores"
+  Products: "Productos"
+  Product: "Producto"
+  Customers: "Clientes"
+  Customer: "Cliente"
+  Suppliers: "Proveedores"
+  Categories: "Categorías"
+  Purchase orders: "Ordenes de compra"
+  Sale orders: "Ordenes de venta"
+  Number: "Número"
+  Comment: "Comentario"
+  Quantity: "Cantidad"
+  Price: "Precio"
+  Add item: "Añadir item"
+  Remove item: "Remover item"
+  Edit this category: "Editar esta categoría"
+  Create a new category: "Crear una nueva categoría"
+  Show: "Ver"
+  Edit: "Editar"
+  Destroy: "Eliminar"
+  Are you sure?: "Estás seguro?"
+  Create a new Product: "Crear un nuevo producto"
+  Edit this product: "Edita este producto"
+  Create a new purchase order: "Crear una nueva orden de compra"
+  Edit this order: "Editar esta orden"
+  Create a new sale order: "Crear nueva orden de venta"
+  Create a new replenisher: "Crear un nuevo reponedor"
+  Edit replenisher: "Editar reponedor"
+  Create a new customer: "Crear un nuevo cliente"
+  Edit customer: "Editar cliente"
+  Return Home: "Volver"
+  activerecord:
+    models:
+      product:
+        one: Producto
+        other: Productos
+      category:
+        one: Categoria
+        other: Categorias
+      supplier:
+        one: Proveedor
+        other: Proveedores
+      customer:
+        one: Cliente
+        other: Clientes
+      replenisher:
+        one: Reponedor
+        other: Reponedores
+      sale_order:
+        one: Orden de venta
+        other: Ordenes de venta
+      purchase_order:
+        one: Orden de compra
+        other: Ordenes de venta
+    attributes:
+      product:
+        name: "Nombre"
+        brand: "Marca"
+        unit: "Unidad"
+        stock: "Stock"
+        ss: "Stock de seguridad"
+        deliver_time: "Tiempo de entrega"
+        order_size: "Tamaño de orden"
+        supplier: "Proveedor"
+        level: "Nivel"
+        category: "Categoría"
+        commentary: "Comentario"
+      category:
+        name: "Nombre"
+      supplier:
+        name: "Nombre"
+        phone: "Teléfono"
+        address: "Dirección"
+      customer:
+        fname: "Nombres"
+        lname: "Apellidos"
+        email: "Email"
+        phone: "Teléfono"
+        dni: "DNI"
+      replenisher:
+        fname: "Nombres"
+        lname: "Apellidos"
+        email: "Email"
+        phone: "Teléfono"
+        dni: "DNI"
+      sale_order:
+        number: "Número"
+        comment: "Comentario"
+        customer: "Cliente"
+      purchase_order:
+        number: "Número"
+        comment: "Comentario"
+        replenisher: "Reponedor"
+      sale_item:
+        price: "Precio"
+        quantity: "Cantidad"
+      purchase_item:
+        price: "Precio"
+        quantity: "Cantidad"

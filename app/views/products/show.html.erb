@@ -3,15 +3,15 @@
 <h1><%= @product.name %></h1>
 
 <ul>
-  <li><span>Stock: </span><%= @product.stock %></li>
+  <li><span><%=t('Stock')%>: </span><%= @product.stock %></li>
 
-  <li><span>Category: </span><%= @product.category.name %></li>
+  <li><span><%=t('Category')%>: </span><%= @product.category.name %></li>
 
-  <li><span>SS: </span><%= @product.ss %></li>
+  <li><span><%=t('SS')%>: </span><%= @product.ss %></li>
 
-  <li><span>Level: </span><%= @product.level %></li>
+  <li><span><%=t('Level')%>: </span><%= @product.level %></li>
 
-  <li><span>Commnetary: </span><%= @product.commentary %></li>
+  <li><span><%=t('Comment')%>: </span><%= @product.commentary %></li>
 </ul>
 
-<p><%= link_to 'Return Home', products_path %></p>
+<p><%= link_to t('Return Home'), products_path %></p>

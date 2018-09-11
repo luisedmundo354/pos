@@ -3,12 +3,12 @@
 <h1><%= @customer.fname%> <%=@customer.lname  %></h1>
 
 <ul>
-  <li><span>Email: </span><%= @customer.email %></li>
+  <li><span><%=t('Email')%>: </span><%= @customer.email %></li>
 
-  <li><span>Phone: </span><%= @customer.phone %></li>
+  <li><span><%=t('Phone')%>: </span><%= @customer.phone %></li>
 
-  <li><span>DNI: </span><%= @customer.dni %></li>
+  <li><span><%=t('DNI')%>: </span><%= @customer.dni %></li>
 
 </ul>
 
-<p><%= link_to 'Return Home', customers_path %></p>
+<p><%= link_to t('Return Home'), customers_path %></p>

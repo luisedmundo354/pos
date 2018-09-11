@@ -6,9 +6,9 @@ module ProductsHelper
     elsif level === "Medio"
       ''
     elsif level === "Bajo"
-      'bg-warning'
+      'table-warning'
     else level === "Reponer"
-      'bg-danger'
+      'table-danger'
     end
   end
 end

@@ -31,3 +31,34 @@
 
 en:
   hello: "Hello world"
+  Deliver_time: "Deliver time"
+  Order_size: "Order size"
+  Sale_orders: "Sale orders"
+  Purchase_orders: "Purchase orders"
+  first_name: "Name"
+  last_name: "Last name"
+  Email: "Email"
+  DNI: "ID"
+  activerecord:
+    models:
+      product:
+        one: Product
+        other: Products
+      category:
+        one: Category
+        other: Categories
+      supplier:
+        one: Supplier
+        other: Suppliers
+      customer:
+        one: Client
+        other: Clients
+      replenisher:
+        one: Replenisher
+        other: Replenishers
+      sale_order:
+        one: Sale Order
+        other: Sale Orders
+      purchase_order:
+        one: Purchase order
+        other: Purchase orders

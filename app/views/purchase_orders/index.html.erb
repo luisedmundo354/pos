@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4 text-left">
-    <h1>Purchase orders</h1>
+    <h1><%= t('Purchase orders') %></h1>
   </div>
 
   <div class="col-md-4 offset-md-4 text-right">
@@ -26,9 +26,9 @@
         <td><%= purchase_orders.number %></td>
         <td><%= purchase_orders.comment %></td>
         <td><%= purchase_orders.replenisher.fname %></td>
-        <td><%= link_to 'Show', purchase_orders %></td>
-        <td><%= link_to "Edit", edit_purchase_order_path(purchase_orders) %></td>
-        <td><%= link_to 'Destroy', purchase_order_path(purchase_orders), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('Show'), purchase_orders %></td>
+        <td><%= link_to t('Edit'), edit_purchase_order_path(purchase_orders) %></td>
+        <td><%= link_to t('Destroy'), purchase_order_path(purchase_orders), method: :delete, data: { confirm: t('Are you sure?') } %></td>
       </tr>
     <% end %>
   </tbody>

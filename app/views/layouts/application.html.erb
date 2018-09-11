@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <% I18n.available_locales %>
 </head>
 
 <body>
@@ -16,25 +17,25 @@
 
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Sale Orders</h1>'.html_safe, sale_orders_path %>
+          <%= link_to t('Sale_orders'), sale_orders_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Purchase Orders</h1>'.html_safe, purchase_orders_path %>
+          <%= link_to t('Purchase_orders'), purchase_orders_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Products</h1>'.html_safe, products_path %>
+          <%= link_to t('Products'), products_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Categories</h1>'.html_safe,  categories_path %>
+          <%= link_to t('Categories'),  categories_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Suppliers</h1>'.html_safe, suppliers_path %>
+          <%= link_to t('Suppliers'), suppliers_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Customers</h1>'.html_safe, customers_path %>
+          <%= link_to t('Customers'), customers_path, { :class=>"nav-link" } %>
         </li>
         <li class="list-group-item">
-          <%= link_to '<h1 class="display-6">Replenishers</h1>'.html_safe, replenishers_path %>
+          <%= link_to t('Replenishers'), replenishers_path, { :class=>"nav-link" } %>
         </li>
       </ul>
     </nav>

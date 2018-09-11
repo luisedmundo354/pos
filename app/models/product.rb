@@ -10,9 +10,9 @@ class Product < ApplicationRecord
 def calculate_level
   if self.stock <= self.ss
     self.level = 'Reponer'
-  elsif self.stock <= 1.5*self.ss
+  elsif self.stock <= 2*self.ss
     self.level = 'Bajo'
-  elsif self.stock <= 2.5*self.ss
+  elsif self.stock <= 3*self.ss
     self.level = 'Medio'
   else
     self.level = 'Alto'

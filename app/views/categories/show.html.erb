@@ -3,7 +3,7 @@
 <h1><%= @category.name %></h1>
 
 <ul>
-  <li><span>Name: </span><%= @category.name %></li>
+  <li><span><%=t('Name')%>: </span><%= @category.name %></li>
 </ul>
 
-<p><%= link_to 'Return Home', categories_path %></p>
+<p><%= link_to t('Return home'), categories_path %></p>

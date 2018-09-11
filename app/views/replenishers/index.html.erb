@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4 text-left">
-    <h1>Replenishers</h1>
+    <h1><%=t('Replenishers')%></h1>
   </div>
 
   <div class="col-md-4 offset-md-4 text-right">
@@ -13,11 +13,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">DNI</th>
+      <th scope="col"><%=t('first_name')%></th>
+      <th scope="col"><%=t('last_name')%></th>
+      <th scope="col"><%=t('Email')%></th>
+      <th scope="col"><%=t('Phone')%></th>
+      <th scope="col"><%=t('DNI')%></th>
       <th colspan="3" scope="col"></th>
     </tr>
   </thead>
@@ -30,9 +30,9 @@
         <td><%= replenisher_items.email %></td>
         <td><%= replenisher_items.phone %></td>
         <td><%= replenisher_items.dni %></td>
-        <td><%= link_to 'Show', replenisher_items %></td>
-        <td><%= link_to "Edit", edit_replenisher_path(replenisher_items) %></td>
-        <td><%= link_to 'Destroy', replenisher_path(replenisher_items), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('Show'), replenisher_items %></td>
+        <td><%= link_to t('Edit'), edit_replenisher_path(replenisher_items) %></td>
+        <td><%= link_to t('Destroy'), replenisher_path(replenisher_items), method: :delete, data: { confirm: t('Are you sure?') } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,15 +3,15 @@
 <h1><%= @supplier.name %></h1>
 
 <ul>
-  <li><span>Name: </span><%= @supplier.name %></li>
+  <li><span><%=t('Name')%>: </span><%= @supplier.name %></li>
 </ul>
 
 <ul>
-  <li><span>Phone: </span><%= @supplier.phone %></li>
+  <li><span><%=t('Phone')%>: </span><%= @supplier.phone %></li>
 </ul>
 
 <ul>
-  <li><span>Address: </span><%= @supplier.address %></li>
+  <li><span><%=t('Address')%>: </span><%= @supplier.address %></li>
 </ul>
 
-<p><%= link_to 'Return Home', suppliers_path %></p>
+<p><%= link_to t('Return Home'), suppliers_path %></p>

@@ -3,14 +3,14 @@
 <h1><%= @sale_order.number %></h1>
 
 <ul>
-  <li><span>Comment: </span><%= @sale_order.comment %></li>
+  <li><span><%=t('Comment')%>: </span><%= @sale_order.comment %></li>
 
-  <li><span>Customer: </span><%= @sale_order.customer.fname %></li>
+  <li><span><%=t('Customer')%>: </span><%= @sale_order.customer.fname %></li>
 
   <% @sale_items.each do |sale_item|%>
-    <li><span>Items: </span><%= sale_item.product.name %></li>
+    <li><span><%=t('Items')%>: </span><%= sale_item.product.name %></li>
     <%end%>
 
 </ul>
 
-<p><%= link_to 'Return Home', sale_orders_path %></p>
+<p><%= link_to t('Return Home'), sale_orders_path %></p>

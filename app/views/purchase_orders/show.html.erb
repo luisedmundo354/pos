@@ -3,14 +3,14 @@
 <h1><%= @purchase_order.number %></h1>
 
 <ul>
-  <li><span>Comment: </span><%= @purchase_order.comment %></li>
+  <li><span><%=t('Comment')%>: </span><%= @purchase_order.comment %></li>
 
-  <li><span>Customer: </span><%= @purchase_order.replenisher.fname %></li>
+  <li><span><%=t('Reponedor')%>: </span><%= @purchase_order.replenisher.fname %></li>
 
   <% @purchase_items.each do |purchase_item|%>
-    <li><span>Items: </span><%= purchase_item.product.name %></li>
+    <li><span><%=t('Items')%>: </span><%= purchase_item.product.name %></li>
     <%end%>
 
 </ul>
 
-<p><%= link_to 'Return Home', purchase_orders_path %></p>
+<p><%= link_to t('Return Home'), purchase_orders_path %></p>

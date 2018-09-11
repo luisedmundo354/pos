@@ -17,9 +17,9 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">Product</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Price</th>
+      <th scope="col"><%=t('Product')%></th>
+      <th scope="col"><%=t('Quantity')%></th>
+      <th scope="col"><%=t('Price')%></th>
       <th colspan="1" scope="col">Actions</th>
     </tr>
   </thead>
@@ -30,7 +30,7 @@
     </tbody>
   </table>
   <div class="links">
-      <%= link_to_add_association 'Add item', form, :purchase_items, form_name: 'form', data: {"association-insertion-node" => "tbody.purchase_items", "association-insertion-method" => "append"} %>
+      <%= link_to_add_association t('Add item'), form, :purchase_items, form_name: 'form', data: {"association-insertion-node" => "tbody.purchase_items", "association-insertion-method" => "append"} %>
   </div>
   <div class="actions">
     <%= form.submit :class=>"btn btn-primary"%>

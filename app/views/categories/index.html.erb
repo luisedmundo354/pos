@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-4 text-left">
-    <h1>Categories</h1>
+    <h1><%= t('Categories') %></h1>
   </div>
 
   <div class="col-md-4 offset-md-4 text-right">
@@ -22,9 +22,9 @@
     <% @category_items.each do |category_items| %>
       <tr>
         <td><%= category_items.name %></td>
-        <td><%= link_to 'Show', category_items %></td>
-        <td><%= link_to "Edit", edit_category_path(category_items) %></td>
-        <td><%= link_to 'Destroy', category_path(category_items), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('Show'), category_items %></td>
+        <td><%= link_to t('Edit'), edit_category_path(category_items) %></td>
+        <td><%= link_to t('Destroy'), category_path(category_items), method: :delete, data: { confirm: t('Are you sure?') } %></td>
       </tr>
     <% end %>
   </tbody>
