@@ -25,9 +25,10 @@ class ReplenishersController < ApplicationController
 end
 
  def create
+   @replenisher = Replenisher.new(replenisher_params)
    respond_to do |format|
      if @replenisher.save
-       format.html { redirect_to replenisher_path, notice: 'The new replenisher is now live.' }
+       format.html { redirect_to replenishers_path, notice: 'The new replenisher is now live.' }
      else
        format.html { render :new }
      end

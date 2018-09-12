@@ -25,9 +25,10 @@ class CustomersController < ApplicationController
 end
 
  def create
+   @customer = Customer.new(customer_params)
    respond_to do |format|
      if @customer.save
-       format.html { redirect_to customer_path, notice: 'The new customer is now live.' }
+       format.html { redirect_to customers_path, notice: 'The new customer is now live.' }
      else
        format.html { render :new }
      end
