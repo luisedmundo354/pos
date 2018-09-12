@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @list_items = Product.where(level: "Reponer")
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
@@ -42,6 +43,21 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def list
+    @list_items = Product.where(level: "Reponer")
+    @suppliers = Supplier.distinct
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "list",
+        template: "products/list.html.erb",
+        encoding: "UTF-8",
+        page_size: "A4",
+        disable_internal_links: true
+      end
+    end
+  end
+
   def destroy
     #Destroy/delete the record
     @product.destroy
@@ -50,7 +66,7 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_path, notice: 'Product was successfully destroyed.' }
     end
   end
-  #This is copyed into the new.permit method
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_product

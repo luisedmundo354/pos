@@ -1,0 +1,39 @@
+<div class='container'>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+    <div>
+      <% @suppliers.each do |supplier|%>
+        <%= supplier.name %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"><%=t('Name')%></th>
+            <th scope="col"><%=t('Brand')%></th>
+            <th scope="col"><%=t('Deliver_time')%></th>
+            <th scope="col"><%=t('Order_size')%></th>
+            <th scope="col"><%=t('Supplier')%></th>
+            <th scope="col"><%=t('Phone')%></th>
+            <th scope="col"><%=t('Address')%></th>
+            <th scope="col"><%=t('Category')%></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @list_items.each do |list_item|%>
+            <% if list_item.supplier == supplier %>
+          <tr>
+            <td class='pdftable'><%= list_item.name %></td>
+            <td class='pdftable'><%= list_item.brand %></td>
+            <td class='pdftable'><%= list_item.deliver_time %></td>
+            <td class='pdftable'><%= list_item.order_size %></td>
+            <td class='pdftable'><%= list_item.supplier.name %></td>
+            <td class='pdftable'><%= list_item.supplier.phone %></td>
+            <td class='pdftable'><%= list_item.supplier.address %></td>
+            <td class='pdftable'><%= list_item.category.name %></td>
+          </tr>
+            <%end%>
+          <% end %>
+        </tbody>
+      </table>
+      <%end%>
+  </div>
+</div>
