@@ -55,6 +55,7 @@ es:
   Edit customer: "Editar cliente"
   Return Home: "Volver"
   Generate list: "Crear lista"
+  Manager: "Encargado"
   activerecord:
     models:
       product:
@@ -95,6 +96,7 @@ es:
         name: "Nombre"
       supplier:
         name: "Nombre"
+        manager: "Encargado"
         phone: "Teléfono"
         address: "Dirección"
       customer:
