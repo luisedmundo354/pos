@@ -14,29 +14,52 @@
 <body>
   <div class="wrapper">
     <!--Navbar content -->
-    <nav id="sidebar">
-
+    <nav id="sidebar" class="navbar-expand-lg navbar-light bg-light">
+      <div class="sidebar-header">
+          <h3><%=t('Inventory')%></h3>
+      </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <%= link_to t('Sale_orders'), sale_orders_path, { :class=>"nav-link" } %>
+          <%= link_to sale_orders_path, { :class=>"nav-link" } do%>
+            <i class="fa fa-share-square-o" aria-hidden="true"></i>
+            <%=t('Sale_orders')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Purchase_orders'), purchase_orders_path, { :class=>"nav-link" } %>
+          <%= link_to purchase_orders_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-cart-plus" aria-hidden="true"></i>
+          <%=t('Purchase_orders')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Products'), products_path, { :class=>"nav-link" } %>
+          <%= link_to products_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-product-hunt" aria-hidden="true"></i>
+          <%=t('Products')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Categories'),  categories_path, { :class=>"nav-link" } %>
+          <%= link_to categories_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-clone" aria-hidden="true"></i>
+          <%=t('Categories')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Suppliers'), suppliers_path, { :class=>"nav-link" } %>
+          <%= link_to suppliers_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-truck" aria-hidden="true"></i>
+          <%=t('Suppliers')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Customers'), customers_path, { :class=>"nav-link" } %>
+          <%= link_to customers_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-male" aria-hidden="true"></i>
+          <%=t('Customers')%>
+          <%end%>
         </li>
         <li class="list-group-item">
-          <%= link_to t('Replenishers'), replenishers_path, { :class=>"nav-link" } %>
+          <%= link_to replenishers_path, { :class=>"nav-link" } do%>
+          <i class="fa fa-share-square-o" aria-hidden="true"></i>
+          <%=t('Replenishers')%>
+          <%end%>
         </li>
       </ul>
     </nav>

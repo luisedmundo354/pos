@@ -42,6 +42,36 @@
   margin-bottom: ($spacer * 3) !important;
 }
 
+.container-fluid{
+  background-color: white;
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light{
+  background-color: white !important;
+}
+
+//Side bar styles
+
+#sidebar .sidebar-header {
+    padding: 20px;
+}
+
+a{
+  color: black;
+}
+
+#sidebarCollapse {
+  border-color: transparent !important;
+  background-color: transparent !important; /* Removes border color */
+  float: left; /* Move navbar toggle to left */
+}
+.navbar-toggler-icon {
+  background-color: white; /* Changes regular toggle color */
+}
+.navbar-toggler-icon {
+  background-color: white; /* Changes toggle color on hover */
+}
+
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;

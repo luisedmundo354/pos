@@ -3,15 +3,17 @@
   <% @suppliers.each do |supplier|%>
     <div class="b">
         <h4><%= supplier.name %></h4>
+        <p><span><%= t('Manager')%>: </span><%= supplier.manager %></p>
         <p><span><%= t('Phone')%>: </span><%= supplier.phone %></p>
         <p><span><%= t('Address')%>: </span><%= supplier.address %></p>
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col"><%=t('Name')%></th>
             <th scope="col"><%=t('Brand')%></th>
             <th scope="col"><%=t('Deliver_time')%></th>
             <th scope="col"><%=t('Order_size')%></th>
+            <th scope="col"><%=t('Unit')%></th>
             <th scope="col"><%=t('Category')%></th>
           </tr>
         </thead>
@@ -24,6 +26,7 @@
             <td class='pdftable'><%= list_item.brand %></td>
             <td class='pdftable'><%= list_item.deliver_time %></td>
             <td class='pdftable'><%= list_item.order_size %></td>
+            <td class='pdftable'><%= list_item.unit %></td>
             <td class='pdftable'><%= list_item.category.name %></td>
           </tr>
             <%end%>
@@ -31,6 +34,6 @@
         </tbody>
       </table>
   </div>
-  <hr noshade>
+<!--  <hr noshade>-->
   <%end%>
 </div>
