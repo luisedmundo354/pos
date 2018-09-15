@@ -8,15 +8,14 @@ class Product < ApplicationRecord
   before_save :calculate_level
 
 def calculate_level
-  if self.stock <= self.ss
-    self.level = 'Reponer'
-  elsif self.stock <= 2*self.ss
-    self.level = 'Bajo'
-  elsif self.stock <= 3*self.ss
-    self.level = 'Medio'
-  else
-    self.level = 'Alto'
-  end
+    if self.stock <= self.ss
+      self.level = 'Reponer'
+    elsif self.stock <= 2*self.ss
+      self.level = 'Bajo'
+    elsif self.stock <= 3*self.ss
+      self.level = 'Medio'
+    else
+      self.level = 'Alto'
+    end
 end
-
 end

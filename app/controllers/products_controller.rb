@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :calculate_level, only: [:index]
 
   def index
     @category_items = Product.select(:category_id).distinct
@@ -64,6 +65,25 @@ class ProductsController < ApplicationController
     #Redirect
     respond_to do |format|
       format.html { redirect_to products_path, notice: 'Product was successfully destroyed.' }
+    end
+  end
+
+  def calculate_level
+    @product_items = Product.all
+    @product_items.each do |product|
+      if product.stock <= product.ss
+        product.level = 'Reponer'
+        product.save
+      elsif product.stock <= 2*product.ss
+        product.level = 'Bajo'
+        product.save
+      elsif product.stock <= 3*product.ss
+        product.level = 'Medio'
+        product.save
+      else
+        product.level = 'Alto'
+        product.save
+      end
     end
   end
 
