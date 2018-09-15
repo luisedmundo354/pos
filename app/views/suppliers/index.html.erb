@@ -28,9 +28,9 @@
         <td><%= supplier_items.manager %></td>
         <td><%= supplier_items.phone %></td>
         <td><%= supplier_items.address %></td>
-        <td><%= link_to t('Show'), supplier_items %></td>
-        <td><%= link_to t('Edit'), edit_supplier_path(supplier_items) %></td>
-        <td><%= link_to t('Destroy'), supplier_path(supplier_items), method: :delete, data: { confirm: t('Are you sure?') } %></td>
+        <td><%= link_to t('Show'), supplier_items, class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Edit'), edit_supplier_path(supplier_items), class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Destroy'), supplier_path(supplier_items), method: :delete, data: { confirm: t('Are you sure?') }, class: "btn btn-outline-dark btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

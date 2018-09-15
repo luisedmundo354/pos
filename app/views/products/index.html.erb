@@ -24,11 +24,9 @@
         <th scope="col"><%=t('Unit')%></th>
         <th scope="col"><%=t('Stock')%></th>
         <th scope="col"><%=t('SS')%></th>
-        <th scope="col"><%=t('Deliver_time')%></th>
         <th scope="col"><%=t('Order_size')%></th>
         <th scope="col"><%=t('Supplier')%></th>
         <th scope="col"><%=t('Phone')%></th>
-        <th scope="col"><%=t('Address')%></th>
         <th scope="col"><%=t('Level')%></th>
         <th scope="col"><%=t('Category')%></th>
         <th colspan="3"  scope="col"></th>
@@ -43,15 +41,13 @@
         <td><%= product_items.unit %></td>
         <td><%= product_items.stock %></td>
         <td><%= product_items.ss %></td>
-        <td><%= product_items.deliver_time %></td>
         <td><%= product_items.order_size %></td>
         <td><%= product_items.supplier.name %></td>
         <td><%= product_items.supplier.phone %></td>
-        <td><%= product_items.supplier.address %></td>
         <td><%= product_items.level %></td>
         <td><%= product_items.category.name %></td>
-        <td><%= link_to t('Show'), product_items %></td>
-        <td><%= link_to t('Edit'), edit_product_path(product_items) %></td>
+        <td><%= link_to t('Show'), product_items, class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Edit'), edit_product_path(product_items), class: "btn btn-outline-dark btn-sm" %></td>
         <td><%= link_to "", product_path(product_items), method: :delete, data: { confirm: t('Are you sure?') }, class: "fa fa-close" %></td>
       </tr>
       <% end %>

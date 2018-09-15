@@ -11,6 +11,16 @@
 
   <li><span><%=t('Level')%>: </span><%= @product.level %></li>
 
+  <li><span><%=t('Supplier')%>: </span><%= @product.supplier.name %></li>
+
+  <li><span><%=t('Delivery_time')%>: </span><%= @product.deliver_time %></li>
+
+  <li><span><%=t('Order_size')%>: </span><%= @product.order_size %></li>
+
+  <li><span><%=t('Address')%>: </span><%= @product.supplier.address %></li>
+
+  <li><span><%=t('Phone')%>: </span><%= @product.supplier.phone %></li>
+
   <li><span><%=t('Comment')%>: </span><%= @product.commentary %></li>
 </ul>
 

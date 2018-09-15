@@ -1,6 +1,5 @@
 <tr class='nested-fields'>
   <td><%= form.collection_select :product_id, Product.all, :id, :name, {prompt: true}, {:class=>"form-control"} %></td>
   <td><%= form.text_field :quantity %></td>
-  <td><%= form.text_field :price %></td>
   <td><%= link_to_remove_association t('Remove item'), form %></td>
 </tr>

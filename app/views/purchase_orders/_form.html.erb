@@ -11,7 +11,7 @@
 
   <div class="form-group">
     <%= form.label :replenisher %>
-    <%= form.collection_select :replenisher_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
+    <%= form.collection_select :replenisher_id, Replenisher.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
   </div>
 
   <table class="table">
@@ -29,8 +29,8 @@
       <%end%>
     </tbody>
   </table>
-  <div class="links">
-      <%= link_to_add_association t('Add item'), form, :purchase_items, form_name: 'form', data: {"association-insertion-node" => "tbody.purchase_items", "association-insertion-method" => "append"} %>
+  <div class="text-center">
+      <%= link_to_add_association t('Add item'), form, :purchase_items, form_name: 'form', data: {"association-insertion-node" => "tbody.purchase_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm" %>
   </div>
   <div class="actions">
     <%= form.submit :class=>"btn btn-primary"%>

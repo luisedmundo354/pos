@@ -22,9 +22,9 @@
     <% @category_items.each do |category_items| %>
       <tr>
         <td><%= category_items.name %></td>
-        <td><%= link_to t('Show'), category_items %></td>
-        <td><%= link_to t('Edit'), edit_category_path(category_items) %></td>
-        <td><%= link_to t('Destroy'), category_path(category_items), method: :delete, data: { confirm: t('Are you sure?') } %></td>
+        <td><%= link_to t('Show'), category_items, class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Edit'), edit_category_path(category_items), class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Destroy'), category_path(category_items), method: :delete, data: { confirm: t('Are you sure?') }, class: "btn btn-outline-dark btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

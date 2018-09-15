@@ -30,9 +30,9 @@
         <td><%= customer_items.email %></td>
         <td><%= customer_items.phone %></td>
         <td><%= customer_items.dni %></td>
-        <td><%= link_to t('Show'), customer_items %></td>
-        <td><%= link_to t('Edit'), edit_customer_path(customer_items) %></td>
-        <td><%= link_to t('Destroy'), customer_path(customer_items), method: :delete, data: { confirm: t('Are you sure?')} %></td>
+        <td><%= link_to t('Show'), customer_items, class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Edit'), edit_customer_path(customer_items), class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Destroy'), customer_path(customer_items), method: :delete, data: { confirm: t('Are you sure?')}, class: "btn btn-outline-dark btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

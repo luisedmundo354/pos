@@ -26,9 +26,9 @@
         <td><%= sale_orders.number %></td>
         <td><%= sale_orders.comment %></td>
         <td><%= sale_orders.customer.lname %></td>
-        <td><%= link_to t('Show'), sale_orders %></td>
-        <td><%= link_to t('Edit'), edit_sale_order_path(sale_orders) %></td>
-        <td><%= link_to t('Destroy'), sale_order_path(sale_orders), method: :delete, data: { confirm: t('Are you sure?') } %></td>
+        <td><%= link_to t('Show'), sale_orders, class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Edit'), edit_sale_order_path(sale_orders), class: "btn btn-outline-dark btn-sm" %></td>
+        <td><%= link_to t('Destroy'), sale_order_path(sale_orders), method: :delete, data: { confirm: t('Are you sure?') }, class: "btn btn-outline-dark btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>

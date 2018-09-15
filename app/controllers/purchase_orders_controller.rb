@@ -12,13 +12,13 @@ class PurchaseOrdersController < ApplicationController
 
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
-    #Update stock
-    @purchase_order.purchase_items.each do |item|
-      @uproduct = Product.find_by_id(item.product_id)
-      @uproduct.increment!(:stock, item.quantity)
-    end
     respond_to do |format|
       if @purchase_order.save
+        #Update stock
+        @purchase_order.purchase_items.each do |item|
+          @uproduct = Product.find_by_id(item.product_id)
+          @uproduct.increment!(:stock, item.quantity)
+        end
         format.html { redirect_to purchase_orders_path, notice: 'Your purchase order item is now live.' }
       else
         format.html { render :new }
@@ -62,6 +62,6 @@ class PurchaseOrdersController < ApplicationController
       @purchase_order = PurchaseOrder.find(params[:id])
     end
     def purchase_order_params
-      params.require(:purchase_order).permit(:number, :comment, :customer_id, purchase_items_attributes: [:id, :price, :quantity, :product_id, :_destroy])
+      params.require(:purchase_order).permit(:number, :comment, :replenisher_id, purchase_items_attributes: [:id, :price, :quantity, :product_id, :_destroy])
     end
 end
