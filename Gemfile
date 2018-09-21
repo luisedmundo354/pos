@@ -20,6 +20,8 @@ gem "cocoon"
 gem 'wicked_pdf'
 #wicked pdf dependency
 gem 'wkhtmltopdf-binary'
+#select2
+gem "select2-rails"
 #for internationalization
 gem 'rails-i18n'
 # gem 'mini_racer', platforms: :ruby
