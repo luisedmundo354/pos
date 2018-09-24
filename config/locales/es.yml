@@ -57,6 +57,8 @@ es:
   Generate list: "Crear lista"
   Manager: "Encargado"
   Inventory: "Inventario"
+  Search: "Buscar"
+  Any: "Cualquiera"
   activerecord:
     models:
       product:

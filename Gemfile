@@ -16,6 +16,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 #gem for dynamic forms
 gem "cocoon"
+# Filters and sorting
+gem 'filterrific'
+#Pagination gem
+gem 'will_paginate'
 #pdf converter
 gem 'wicked_pdf'
 #wicked pdf dependency

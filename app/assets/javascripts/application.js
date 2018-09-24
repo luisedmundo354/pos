@@ -22,7 +22,7 @@
 //= require select2
 //= require select2_locale_es
 //= require_tree .
-
+//= require filterrific/filterrific-jquery
 
 $( ".dropdown" ).select2({
     theme: "bootstrap"

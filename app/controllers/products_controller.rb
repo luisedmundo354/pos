@@ -3,12 +3,25 @@ class ProductsController < ApplicationController
   before_action :calculate_level, only: [:index]
 
   def index
-    @category_items = Product.select(:category_id).distinct
-    if params[:category]
-      @product_items = Product.where(:category => params[:category])
-    else
-      @product_items = Product.all
+    @filterrific = initialize_filterrific(
+      Product,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Product.options_for_sorted_by,
+        with_category_id: Category.options_for_select,
+        with_level: Product.all.map {|p| [p.level]}
+      }
+    ) or return
+    @products = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
     end
+    rescue ActiveRecord::RecordNotFound => e
+      # There is an issue with the persisted param_set. Reset it.
+      puts "Had to reset filterrific params: #{ e.message }"
+      redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   def new
