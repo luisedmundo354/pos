@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
       select_options: {
         sorted_by: Product.options_for_sorted_by,
         with_category_id: Category.options_for_select,
-        with_level: Product.all.map {|p| [p.level]}
+        with_level: Product.distinct.pluck(:level)
       }
     ) or return
     @products = @filterrific.find.page(params[:page])
