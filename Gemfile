@@ -20,6 +20,8 @@ gem "cocoon"
 gem 'filterrific'
 #Pagination gem
 gem 'will_paginate'
+#will paginate with Bootstrap
+gem 'will_paginate-bootstrap4'
 #pdf converter
 gem 'wicked_pdf'
 #wicked pdf dependency

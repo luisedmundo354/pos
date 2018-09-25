@@ -9,7 +9,11 @@
     </div>
   </div>
 
-
+<div>
+<p><%= link_to list_items_path(@list_items, :format => :pdf) do%>
+<button type="button" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><%=t('Generate list')%></button>
+<%end%></p>
+</div>
 
 <%= form_for_filterrific @filterrific do |f| %>
 <div class="form-row">
@@ -48,5 +52,5 @@
   partial: 'products/draft',
   locals: { products: @products }
 ) %>
-  <p><%= link_to t('Generate list'), list_items_path(@list_items, :format => :pdf), class: "btn btn-primary" %></p>
+
 </div>

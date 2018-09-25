@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
         with_level: Product.distinct.pluck(:level)
       }
     ) or return
-    @products = @filterrific.find.page(params[:page])
+    @products = @filterrific.find.paginate(page: params[:page], per_page: 15)
 
     respond_to do |format|
       format.html
