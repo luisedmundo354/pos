@@ -16,7 +16,8 @@
       <th scope="col"><%=t('Number')%></th>
       <th scope="col"><%=t('Comment')%></th>
       <th scope="col"><%=t('Customer')%></th>
-      <th colspan="3" scope="col"></th>
+<!--      <th colspan="3" scope="col"></th> -->
+      <th colspan="2" scope="col"></th>
     </tr>
   </thead>
 
@@ -27,7 +28,7 @@
         <td><%= sale_orders.comment %></td>
         <td><%= sale_orders.customer.lname %></td>
         <td><%= link_to t('Show'), sale_orders, class: "btn btn-outline-dark btn-sm" %></td>
-        <td><%= link_to t('Edit'), edit_sale_order_path(sale_orders), class: "btn btn-outline-dark btn-sm" %></td>
+<!--        <td><%# link_to t('Edit'), edit_sale_order_path(sale_orders), class: "btn btn-outline-dark btn-sm" %></td>-->
         <td><%= link_to t('Destroy'), sale_order_path(sale_orders), method: :delete, data: { confirm: t('Are you sure?') }, class: "btn btn-outline-dark btn-sm" %></td>
       </tr>
     <% end %>

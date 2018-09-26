@@ -59,6 +59,13 @@ es:
   Inventory: "Inventario"
   Search: "Buscar"
   Any: "Cualquiera"
+  Your product item is now live: "Su producto ya está activo"
+  Product was successfully updated: "Su producto fue actualizado con éxito"
+  Product was successfully destroyed: "Su producto fue destruido con éxito"
+  Your sale order item is now live: "Su orden de venta ha sido creada con éxito"
+  The order was successfully updated: "Su orden fue actualizada con éxito"
+  The order was successfully destroyed: "Su orden fue eliminada con éxito"
+  Your purchase order item is now live: "Su orden de compra ha sido creada con éxito"
   activerecord:
     models:
       product:

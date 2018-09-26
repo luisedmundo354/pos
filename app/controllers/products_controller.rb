@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to products_path, notice: 'Your product item is now live.' }
+        format.html { redirect_to products_path, notice: t('Your product item is now live') }
       else
         format.html { render :new }
       end
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
     @list_items = Product.where(level: "Reponer")
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
+        format.html { redirect_to products_path, notice: t('Product was successfully updated') }
       else
         format.html { render :edit }
       end
@@ -77,7 +77,7 @@ class ProductsController < ApplicationController
     @product.destroy
     #Redirect
     respond_to do |format|
-      format.html { redirect_to products_path, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_path, notice: t('Product was successfully destroyed') }
     end
   end
 

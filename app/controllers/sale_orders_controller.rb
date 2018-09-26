@@ -19,7 +19,7 @@ class SaleOrdersController < ApplicationController
           @uproduct = Product.find_by_id(item.product_id)
           @uproduct.decrement!(:stock, item.quantity)
         end
-        format.html { redirect_to sale_orders_path, notice: 'Your sale order item is now live.' }
+        format.html { redirect_to sale_orders_path, notice: t('Your sale order item is now live') }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class SaleOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @sale_order.update(sale_order_params)
-        format.html { redirect_to sale_order_path, notice: 'The order was successfully updated.' }
+        format.html { redirect_to sale_order_path, notice: t('The order was successfully updated') }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class SaleOrdersController < ApplicationController
     end
     #Redirect
     respond_to do |format|
-      format.html { redirect_to sale_orders_path, notice: 'the order was successfully destroyed.' }
+      format.html { redirect_to sale_orders_path, notice: t('The order was successfully destroyed') }
     end
   end
 

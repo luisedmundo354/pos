@@ -19,7 +19,7 @@ class PurchaseOrdersController < ApplicationController
           @uproduct = Product.find_by_id(item.product_id)
           @uproduct.increment!(:stock, item.quantity)
         end
-        format.html { redirect_to purchase_orders_path, notice: 'Your purchase order item is now live.' }
+        format.html { redirect_to purchase_orders_path, notice: t('Your purchase order item is now live') }
       else
         format.html { render :new }
       end
@@ -36,7 +36,7 @@ class PurchaseOrdersController < ApplicationController
   def update
     respond_to do |format|
       if @purchase_order.update(purchase_order_params)
-        format.html { redirect_to purchase_order_path, notice: 'The order was successfully updated.' }
+        format.html { redirect_to purchase_order_path, notice: t('The order was successfully updated') }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class PurchaseOrdersController < ApplicationController
     end
     #Redirect
     respond_to do |format|
-      format.html { redirect_to purchase_orders_path, notice: 'the order was successfully destroyed.' }
+      format.html { redirect_to purchase_orders_path, notice: t('The order was successfully destroyed') }
     end
   end
 
