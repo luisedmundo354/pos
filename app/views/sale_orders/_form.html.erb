@@ -34,14 +34,14 @@
   </div>
 
   <div class="actions">
-    <%= form.submit :class=>"btn btn-primary"%>
+    <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
   </div>
-  <button type="button" class="btn btn-primary launch-quagga" data-toggle="modal" data-target="#exampleModal">
+  <button type="button" class="btn btn-outline-dark btn-sm launch-quagga" data-toggle="modal" data-target="#Modala">
   <%= t('Find products with barcode') %>
 </button>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade bd-example-modal-lg bcmodal" id="Modala" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><%= t('Find product') %></h5>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('Finish') %></button>
+        <button type="button" class="btn btn-secondary finish" data-dismiss="modal"><%= t('Finish') %></button>
         <%= link_to_add_association t('Next'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm launch-quagga" %>
       </div>
     </div>

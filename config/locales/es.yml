@@ -67,6 +67,9 @@ es:
   The order was successfully updated: "Su orden fue actualizada con éxito"
   The order was successfully destroyed: "Su orden fue eliminada con éxito"
   Your purchase order item is now live: "Su orden de compra ha sido creada con éxito"
+  Next: "Siguiente"
+  Finish: "Terminar"
+  Find products with barcode: "Añadir productos por código de barras"
   activerecord:
     models:
       product:

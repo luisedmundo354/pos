@@ -100,6 +100,14 @@ function load_quagga(){
 
   }
 };
+
 $(document).on('turbolinks:load', function(){
   $('.launch-quagga').click(load_quagga)
+});
+
+
+$(document).on('turbolinks:load', function(){
+  $('.bcmodal').on('hidden.bs.modal', function (){
+    Quagga.stop()
+  })
 });
