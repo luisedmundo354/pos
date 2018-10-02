@@ -74,9 +74,9 @@ function load_quagga(){
           last_result = [];
           Quagga.stop();
           $.ajax({
-            type: "GET",
-            url: '/sale_orders/new',
-            data: { upc: code }
+            url: '/sale_orders/get_barcode',
+            type: "POST",
+            data: {upc : +code}
           });
         }
       });

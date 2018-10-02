@@ -1,4 +1,5 @@
 class SaleOrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,6 +9,7 @@ class SaleOrdersController < ApplicationController
   def new
     @sale_order = SaleOrder.new
     @sale_order.sale_items.build
+
   end
 
   def create
@@ -24,6 +26,13 @@ class SaleOrdersController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def get_barcode
+    @selected = Product.find_by(id: 2)
+      respond_to do |format|
+        format.js
+     end
   end
 
   def show

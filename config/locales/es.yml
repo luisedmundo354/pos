@@ -58,6 +58,7 @@ es:
   Manager: "Encargado"
   Inventory: "Inventario"
   Search: "Buscar"
+  Actions: "Acciones"
   Any: "Cualquiera"
   Your product item is now live: "Su producto ya está activo"
   Product was successfully updated: "Su producto fue actualizado con éxito"
