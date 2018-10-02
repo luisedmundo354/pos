@@ -29,7 +29,7 @@ class SaleOrdersController < ApplicationController
   end
 
   def get_barcode
-    @selected = Product.find_by(id: 2)
+    @selected = Product.find_or_initialize_by(upc: params[:upc])
       respond_to do |format|
         format.js
      end

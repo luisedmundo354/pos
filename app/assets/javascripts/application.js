@@ -100,4 +100,6 @@ function load_quagga(){
 
   }
 };
-$(document).on('turbolinks:load', load_quagga);
+$(document).on('turbolinks:load', function(){
+  $('.launch-quagga').click(load_quagga)
+});
