@@ -1,67 +1,65 @@
-<%= form_for @sale_order do |form| %>
-  <div class="form-group">
-    <%= form.label :number %>
-    <%= form.text_field :number, id: :sale_order_number, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :comment %>
-    <%= form.text_field :comment, id: :sale_order_comment, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :customer %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
-  </div>
-
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col"><%=t('Product')%></th>
-      <th scope="col"><%=t('Quantity')%></th>
-      <th scope="col"><%=t('Upc')%></th>
-      <th colspan="1" scope="col"><%=t('Actions')%></th>
-    </tr>
-  </thead>
-    <tbody class="sale_items">
-      <%= form.fields_for :sale_items do |sale_item| %>
-        <%= render 'sale_item_fields', form: sale_item %>
-      <%end%>
-    </tbody>
-  </table>
-  <div class="text-center">
-      <%= link_to_add_association t('Add item'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
-  </div>
-  <button type="button" class="btn btn-outline-dark btn-sm launch-quagga" data-toggle="modal" data-target="#Modala">
-  <%= t('Find products with barcode') %>
-</button>
-<!-- Modal -->
-<div class="modal fade bd-example-modal-lg bcmodal" id="Modala" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= t('Find product') %></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="barcode-scanner">
-
-        </div>
-        <div id="product-name">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary finish" data-dismiss="modal"><%= t('Finish') %></button>
-        <%= link_to_add_association t('Next'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm launch-quagga" %>
-      </div>
+<div class="stepwizard">
+  <div class="stepwizard-row setup-panel">
+    <div class="stepwizard-step">
+      <a href="#step-1" type="button" class="btn btn-primary btn-default btn-circle">1</a>
+    </div>
+    <div class="stepwizard-step">
+      <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
     </div>
   </div>
 </div>
 
-<% end %>
+<%= form_for @sale_order do |form| %>
+<div class="setup-content" id="step-1">
+  <div class="form-group row">
+    <%= form.label :number, class: "col-2 col-form-label" %>
+    <div class="col-10">
+    <%= form.text_field :number, id: :sale_order_number, class: "form-control" %>
+  </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :comment, class: "col-2 col-form-label" %>
+    <div class="col-10">
+    <%= form.text_field :comment, id: :sale_order_comment, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= form.label :customer, class: "col-2 col-form-label" %>
+    <div class="col-10">
+    <%= form.collection_select :customer_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
+    </div>
+  </div>
+  <button class="btn btn-outline-dark btn-sm nextBtn pull-right" type="button" ><%=t('Next')%></button>
+</div>
+<div class="setup-content" id="step-2">
+  <div class="form-group row">
+    <label class="col-2 col-form-label"><%=t('Barcode')%> :</label>
+    <div class="col-4">
+    <input class='upcval'> </input>
+  </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%=t('Product')%></th>
+        <th scope="col"><%=t('Quantity')%></th>
+        <th scope="col"><%=t('Upc')%></th>
+        <th colspan="1" scope="col"><%=t('Actions')%></th>
+      </tr>
+    </thead>
+    <tbody class="sale_items">
+      <%= form.fields_for :sale_items do |sale_item| %>
+      <%= render 'sale_item_fields', form: sale_item %>
+      <%end%>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <%= link_to_add_association t('Add item'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm", id: "add-item" %>
+  </div>
+  <div class="actions text-center">
+    <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
+  </div>
+  </div>
+  <% end %>

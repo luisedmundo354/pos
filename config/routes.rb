@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'products/list', to: 'products#list', as: 'list_items'
   resources :products, :categories, :suppliers
   resources :sale_orders do
-    post :get_barcode, on: :collection
+    post :sale_item_fields, on: :collection
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

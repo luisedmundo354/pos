@@ -18,17 +18,19 @@
 //= require popper
 //= require bootstrap
 //= require quagga
+//= require jquery.observe_field
 //= require cocoon
 //= require select2
 //= require select2_locale_es
+//= require sale_orders
 //= require_tree .
 //= require filterrific/filterrific-jquery
 
 $( ".dropdown" ).select2({
-    theme: "bootstrap"
+  theme: "bootstrap"
 });
 
-$(document).on('turbolinks:load', function () {
+$(document).on('turbolinks:load', function (e, added_task) {
   $(".dropdown").select2();
 });
 
@@ -40,74 +42,68 @@ $(document).on('turbolinks:load', function () {
 
 $(document).on('turbolinks:load', function () {
 
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
 
 });
 
+$(document).on('turbolinks:load', function() {
 
-function order_by_occurrence(arr) {
-  var counts = {};
-  arr.forEach(function(value){
-      if(!counts[value]) {
-          counts[value] = 0;
-      }
-      counts[value]++;
-  });
+    var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn');
 
-  return Object.keys(counts).sort(function(curKey,nextKey) {
-      return counts[curKey] < counts[nextKey];
-  });
-}
+    allWells.hide();
 
-function load_quagga(){
-  if ($('#barcode-scanner').length > 0 && navigator.mediaDevices && typeof navigator.mediaDevices.getUserMedia === 'function') {
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+                $item = $(this);
 
-    var last_result = [];
-    if (Quagga.initialized == undefined) {
-      Quagga.onDetected(function(result) {
-        var last_code = result.codeResult.code;
-        last_result.push(last_code);
-        if (last_result.length > 20) {
-          code = order_by_occurrence(last_result)[0];
-          last_result = [];
-          Quagga.stop();
-          $.ajax({
-            url: '/sale_orders/get_barcode',
-            type: "POST",
-            data: {upc : +code}
-          });
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-primary').addClass("btn-default");
+            $item.addClass('btn-primary');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
         }
-      });
-    }
-
-    Quagga.init({
-      inputStream : {
-        name : "Live",
-        type : "LiveStream",
-        numOfWorkers: navigator.hardwareConcurrency,
-        target: document.querySelector('#barcode-scanner')
-      },
-      decoder: {
-          readers : ['ean_reader','ean_8_reader','code_39_reader','code_39_vin_reader','codabar_reader','upc_reader','upc_e_reader']
-      }
-    },function(err) {
-        if (err) { console.log(err); return }
-        Quagga.initialized = true;
-        Quagga.start();
     });
 
-  }
-};
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
 
-$(document).on('turbolinks:load', function(){
-  $('.launch-quagga').click(load_quagga)
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i<curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-primary').trigger('click');
 });
 
+$(document).on('turbolinks:load', function () {
+  $('nextBtn').on('click', function () {
+    $('.upcval').focus();
+  });
+});
 
-$(document).on('turbolinks:load', function(){
-  $('.bcmodal').on('hidden.bs.modal', function (){
-    Quagga.stop()
-  })
+$(document).on('turbolinks:load', function () {
+  $(".upcval").change(function(){
+    var code = $(".upcval").val();
+    $.ajax({
+      url: '/sale_orders/sale_item_fields',
+      type: "POST",
+      data: {upc : +code}
+    });
+  });
 });

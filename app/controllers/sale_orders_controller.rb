@@ -9,7 +9,6 @@ class SaleOrdersController < ApplicationController
   def new
     @sale_order = SaleOrder.new
     @sale_order.sale_items.build
-
   end
 
   def create
@@ -28,11 +27,13 @@ class SaleOrdersController < ApplicationController
     end
   end
 
-  def get_barcode
+  def sale_item_fields
     @selected = Product.find_or_initialize_by(upc: params[:upc])
+    if @selected
       respond_to do |format|
         format.js
-     end
+      end
+    end
   end
 
   def show

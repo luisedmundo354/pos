@@ -70,6 +70,9 @@ es:
   Next: "Siguiente"
   Finish: "Terminar"
   Find products with barcode: "Añadir productos por código de barras"
+  Insert the sale order information: "Añadir la información de la orden"
+  Insert the items: "Añadir items"
+  Barcode: "Código de barras"
   activerecord:
     models:
       product:

@@ -1,3 +1,0 @@
-$("#product-name").html("<%= escape_javascript(render partial: 'get_barcode', locals: { selected: @selected } ) %>");
-$('.upcval').last().val("<%= @selected.upc %>");
-$(".select2-container.form-control.dropdown").last().select2('data', { id:"<%= @selected.id %>", text: "<%= @selected.name %>"});
