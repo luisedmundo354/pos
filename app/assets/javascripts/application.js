@@ -98,10 +98,21 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(document).on('turbolinks:load', function () {
-  $(".upcval").change(function(){
-    var code = $(".upcval").val();
+  $("#sale-upcval").change(function(){
+    var code = $("#sale-upcval").val();
     $.ajax({
       url: '/sale_orders/sale_item_fields',
+      type: "POST",
+      data: {upc : +code}
+    });
+  });
+});
+
+$(document).on('turbolinks:load', function () {
+  $("#purchase-upcval").change(function(){
+    var code = $("#purchase-upcval").val();
+    $.ajax({
+      url: '/purchase_orders/purchase_item_fields',
       type: "POST",
       data: {upc : +code}
     });

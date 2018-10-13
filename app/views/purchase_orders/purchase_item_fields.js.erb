@@ -1,6 +1,7 @@
 $(".select2-container.form-control.dropdown").last().select2('data', { id:"<%= @selected.id %>", text: "<%= @selected.name %>"});
 $(".item-upc").last().val("<%= @selected.upc %>");
+$(".item-unit").last().val("<%= @selected.unit %>");
 $(".item-quantity").last().val("1");
 $("#add-item").trigger("click");
-$(".upcval").val("");
-$(".upcval").focus();
+$("#purchase-upcval").val("");
+$("#purchase-upcval").focus();

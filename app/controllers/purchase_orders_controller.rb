@@ -1,4 +1,5 @@
 class PurchaseOrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -22,6 +23,15 @@ class PurchaseOrdersController < ApplicationController
         format.html { redirect_to purchase_orders_path, notice: t('Your purchase order item is now live') }
       else
         format.html { render :new }
+      end
+    end
+  end
+
+  def purchase_item_fields
+    @selected = Product.find_or_initialize_by(upc: params[:upc])
+    if @selected
+      respond_to do |format|
+        format.js
       end
     end
   end
