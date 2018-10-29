@@ -9,17 +9,13 @@ class PurchaseOrdersController < ApplicationController
   def new
     @purchase_order = PurchaseOrder.new
     @purchase_order.purchase_items.build
+    @last_record = PurchaseOrder.last
   end
 
   def create
     @purchase_order = PurchaseOrder.new(purchase_order_params)
     respond_to do |format|
       if @purchase_order.save
-        #Update stock
-        @purchase_order.purchase_items.each do |item|
-          @uproduct = Product.find_by_id(item.product_id)
-          @uproduct.increment!(:stock, item.quantity)
-        end
         format.html { redirect_to purchase_orders_path, notice: t('Your purchase order item is now live') }
       else
         format.html { render :new }
@@ -56,11 +52,6 @@ class PurchaseOrdersController < ApplicationController
   def destroy
     #Destroy/delete the record
     @purchase_order.destroy
-    #Update stock
-    @purchase_order.purchase_items.each do |item|
-      @uproduct = Product.find_by_id(item.product_id)
-      @uproduct.decrement!(:stock, item.quantity)
-    end
     #Redirect
     respond_to do |format|
       format.html { redirect_to purchase_orders_path, notice: t('The order was successfully destroyed') }

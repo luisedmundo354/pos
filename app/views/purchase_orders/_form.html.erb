@@ -14,23 +14,24 @@
   <div class="form-group row">
     <%= form.label :number, class: "col-2 col-form-label" %>
     <div class="col-10">
-    <%= form.text_field :number, id: :purchase_order_number, class: "form-control" %>
+    <%= form.text_field :number, id: :purchase_order_number, class: "form-control", value: @last_record.number+1 %>
   </div>
   </div>
-
-  <div class="form-group row">
-    <%= form.label :comment, class: "col-2 col-form-label" %>
-    <div class="col-10">
-    <%= form.text_field :comment, id: :purchase_order_comment, class: "form-control" %>
-  </div>
-</div>
 
   <div class="form-group row">
     <%= form.label :replenisher, class: "col-2 col-form-label" %>
     <div class="col-10">
-    <%= form.collection_select :replenisher_id, Replenisher.all, :id, :lname, {prompt: true}, {:class=>"form-control"}  %>
+    <%= form.collection_select :replenisher_id, Replenisher.all, :id, :lname, {prompt: true}, {:class=>"form-control", :autofocus => true}  %>
   </div>
 </div>
+
+<div class="form-group row">
+  <%= form.label :comment, class: "col-2 col-form-label" %>
+  <div class="col-10">
+  <%= form.text_field :comment, id: :purchase_order_comment, class: "form-control" %>
+</div>
+</div>
+
 <button class="btn btn-outline-dark btn-sm nextBtn pull-right" type="button" ><%=t('Next')%></button>
 </div>
 <div class="setup-content" id="step-2">
@@ -62,6 +63,9 @@
   </div>
   <div class="actions text-center">
     <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
+  </div>
+  <div class="">
+    <span><%=t('Result')%></span><span class="result"></span>
   </div>
   </div>
 <% end %>

@@ -6,6 +6,8 @@ class Product < ApplicationRecord
   has_many :sale_items
   has_many :sale_orders, :through => :sale_items
   before_save :calculate_level
+  #Validations
+  validates :stock, numericality: { greater_than_or_equal_to: 0 }
 
   filterrific(
     default_filter_params: { sorted_by: 'name_desc' },
@@ -59,7 +61,7 @@ class Product < ApplicationRecord
      ]
   end
 
-def calculate_level
+  def calculate_level
     if self.stock <= self.ss
       self.level = 'Reponer'
     elsif self.stock <= 2*self.ss
@@ -69,5 +71,6 @@ def calculate_level
     else
       self.level = 'Alto'
     end
-end
+  end
+
 end

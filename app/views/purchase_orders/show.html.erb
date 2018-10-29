@@ -6,11 +6,26 @@
   <li><span><%=t('Comment')%>: </span><%= @purchase_order.comment %></li>
 
   <li><span><%=t('Reponedor')%>: </span><%= @purchase_order.replenisher.fname %></li>
-
-  <% @purchase_items.each do |purchase_item|%>
-    <li><span><%=t('Items')%>: </span><%= purchase_item.product.name %></li>
-    <%end%>
-
 </ul>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%=t('Items')%></th>
+      <th scope="col"><%=t('Quantity')%></th>
+      <th scope="col"><%=t('Price')%></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @purchase_items.each do |purchase_item|%>
+  <tr>
+    <td><%= purchase_item.product.name %></td>
+    <td><%= purchase_item.quantity %></td>
+    <td><%= purchase_item.price %></td>
+  </tr>
+  <%end%>
+  <tbody>
+</table>
+
 
 <p><%= link_to t('Return Home'), purchase_orders_path %></p>

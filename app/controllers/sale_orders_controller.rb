@@ -9,17 +9,13 @@ class SaleOrdersController < ApplicationController
   def new
     @sale_order = SaleOrder.new
     @sale_order.sale_items.build
+    @last_record = SaleOrder.last
   end
 
   def create
     @sale_order = SaleOrder.new(sale_order_params)
     respond_to do |format|
       if @sale_order.save
-        #Update stock
-        @sale_order.sale_items.each do |item|
-          @uproduct = Product.find_by_id(item.product_id)
-          @uproduct.decrement!(:stock, item.quantity)
-        end
         format.html { redirect_to sale_orders_path, notice: t('Your sale order item is now live') }
       else
         format.html { render :new }
@@ -59,7 +55,9 @@ class SaleOrdersController < ApplicationController
     #Update stock
     @sale_order.sale_items.each do |item|
       @uproduct = Product.find_by_id(item.product_id)
-      @uproduct.increment!(:stock, item.quantity)
+      if @uproduct
+        @uproduct.increment!(:stock, item.quantity)
+      end
     end
     #Redirect
     respond_to do |format|
