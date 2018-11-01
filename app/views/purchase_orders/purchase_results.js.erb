@@ -1,0 +1,5 @@
+var total = 0.0;
+$('.item-quantity').each(function() {
+  total += parseFloat(this.value);
+  $("#result").text(total);
+});

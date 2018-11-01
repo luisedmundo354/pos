@@ -32,6 +32,12 @@ class PurchaseOrdersController < ApplicationController
     end
   end
 
+  def purchase_results
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
     @purchase_items = @purchase_order.purchase_items
   end

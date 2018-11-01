@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
   resources :purchase_orders do
     post :purchase_item_fields, on: :collection
+    post :purchase_results, on: :collection
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

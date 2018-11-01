@@ -118,3 +118,12 @@ $(document).on('turbolinks:load', function () {
     });
   });
 });
+
+$(document).on('turbolinks:load', function() {
+  $("#purchase-upcval").change(function() {
+    $.ajax({
+      url: '/purchase_orders/purchase_results',
+      type: 'POST'
+    });
+  });
+});

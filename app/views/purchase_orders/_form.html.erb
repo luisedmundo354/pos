@@ -64,8 +64,9 @@
   <div class="actions text-center">
     <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
   </div>
-  <div class="">
-    <span><%=t('Result')%></span><span class="result"></span>
+  <div>
+    <%= render 'purchase_results'%>
+
   </div>
   </div>
 <% end %>

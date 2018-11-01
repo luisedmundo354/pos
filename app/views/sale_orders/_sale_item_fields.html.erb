@@ -2,8 +2,7 @@
   <td><%= form.collection_select :product_id, Product.all, :id, :name, {prompt: true}, {:class=>"form-control dropdown", id: "select"} %></td>
   <td><input class="item-unit form-control" readonly> </input></td>
   <td><%= form.text_field :quantity, class: "item-quantity form-control"%></td>
+  <td><%= form.text_field :price, class: "item-price form-control" %></td>
   <td><input class="item-upc form-control" readonly> </input></td>
-
-<!--  <td><%# form.text_field :price %></td> -->
   <td><%= link_to_remove_association t('Remove item'), form %></td>
 </tr>
