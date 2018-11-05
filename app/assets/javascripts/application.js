@@ -120,9 +120,18 @@ $(document).on('turbolinks:load', function () {
 });
 
 $(document).on('turbolinks:load', function() {
-  $("#purchase-upcval").change(function() {
+  $(".calculate-purchase").click(function() {
     $.ajax({
       url: '/purchase_orders/purchase_results',
+      type: 'POST'
+    });
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $(".calculate-sale").click(function() {
+    $.ajax({
+      url: '/sale_orders/sale_results',
       type: 'POST'
     });
   });

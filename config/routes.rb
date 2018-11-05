@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :products, :categories, :suppliers
   resources :sale_orders do
     post :sale_item_fields, on: :collection
+    post :sale_results, on: :collection
   end
   resources :purchase_orders do
     post :purchase_item_fields, on: :collection

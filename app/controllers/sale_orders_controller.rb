@@ -32,6 +32,12 @@ class SaleOrdersController < ApplicationController
     end
   end
 
+  def sale_results
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
     @sale_items = @sale_order.sale_items
   end

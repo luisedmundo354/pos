@@ -19,3 +19,15 @@
 #    commentary: "Atiende los miercoles"
 #  )
 #end
+
+  SaleOrder.create!(
+    number: 1,
+    comment: "-",
+    customer_id: 1,
+  )
+
+  PurchaseOrder.create!(
+    number: 1,
+    comment: "-",
+    replenisher_id: 1,
+  )

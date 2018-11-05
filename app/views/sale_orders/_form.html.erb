@@ -47,6 +47,7 @@
         <th scope="col"><%=t('Product')%></th>
         <th scope="col"><%=t('Unit')%></th>
         <th scope="col"><%=t('Quantity')%></th>
+        <th scope="col"><%=t('Price')%></th>
         <th scope="col"><%=t('Upc')%></th>
         <th colspan="1" scope="col"><%=t('Actions')%></th>
       </tr>
@@ -60,8 +61,14 @@
   <div class="text-center">
     <%= link_to_add_association t('Add item'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm", id: "add-item" %>
   </div>
+  <div class="">
+    <button class="calculate-sale btn btn-outline-dark btn-sm" type="button" name="button" ><%= t('Calculate total') %></button>
+  </div>
   <div class="actions text-center">
     <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
+  </div>
+  <div>
+    <%= render 'sale_results'%>
   </div>
   </div>
   <% end %>
