@@ -74,6 +74,10 @@ es:
   Insert the sale order information: "Añadir la información de la orden"
   Insert the items: "Añadir items"
   Barcode: "Código de barras"
+  Calculate total: "Calcular total"
+  Change: "Cambio"
+  Pay: "Paga"
+  Total: "Total"
   activerecord:
     models:
       product:
@@ -102,6 +106,7 @@ es:
         name: "Nombre"
         brand: "Marca"
         unit: "Unidad"
+        price: "Precio"
         stock: "Stock"
         ss: "Stock de seguridad"
         deliver_time: "Tiempo de entrega"

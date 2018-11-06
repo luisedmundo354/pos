@@ -7,7 +7,7 @@ class SaleItem < ApplicationRecord
     if self.product.stock >= self.quantity
       self.product.update_attribute("stock", (product.stock - self.quantity))
     else
-      errors.add(:product, message: "cannot be nil")
+      errors.add(:product, message: "Cannot be nil")
     end
   end
   def increment_stock

@@ -14,21 +14,21 @@
   <div class="form-group row">
     <%= form.label :number, class: "col-2 col-form-label" %>
     <div class="col-10">
-    <%= form.text_field :number, id: :sale_order_number, class: "form-control", value: @last_record.number+1 %>
-  </div>
+      <%= form.text_field :number, id: :sale_order_number, class: "form-control", value: @last_record.number+1 %>
+    </div>
   </div>
 
   <div class="form-group row">
     <%= form.label :customer, class: "col-2 col-form-label" %>
     <div class="col-10">
-    <%= form.collection_select :customer_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control", :autofocus => true}  %>
+      <%= form.collection_select :customer_id, Customer.all, :id, :lname, {prompt: true}, {:class=>"form-control", :autofocus => true}  %>
     </div>
   </div>
 
   <div class="form-group row">
     <%= form.label :comment, class: "col-2 col-form-label" %>
     <div class="col-10">
-    <%= form.text_field :comment, id: :sale_order_comment, class: "form-control" %>
+      <%= form.text_field :comment, id: :sale_order_comment, class: "form-control" %>
     </div>
   </div>
 
@@ -38,8 +38,8 @@
   <div class="form-group row">
     <label class="col-2 col-form-label"><%=t('Barcode')%> :</label>
     <div class="col-4">
-    <input id="sale-upcval"> </input>
-  </div>
+      <input id="sale-upcval"> </input>
+    </div>
   </div>
   <table class="table">
     <thead>
@@ -61,14 +61,18 @@
   <div class="text-center">
     <%= link_to_add_association t('Add item'), form, :sale_items, form_name: 'form', data: {"association-insertion-node" => "tbody.sale_items", "association-insertion-method" => "append"}, class: "btn btn-outline-dark btn-sm", id: "add-item" %>
   </div>
-  <div class="">
-    <button class="calculate-sale btn btn-outline-dark btn-sm" type="button" name="button" ><%= t('Calculate total') %></button>
-  </div>
-  <div class="actions text-center">
-    <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
+  <div class="form-group row justify-content-end">
+    <label for="pay-with" class="col-sm-2 col-form-label"><%=t('Pay')%>:</label>
+    <div class="col-2">
+      <input type="number" class="form-control" id="pay-with">
+    </div>
   </div>
   <div>
     <%= render 'sale_results'%>
   </div>
-  </div>
-  <% end %>
+</div>
+<div class="actions text-center">
+  <%= form.submit :class=>"btn btn-outline-dark btn-sm"%>
+</div>
+</div>
+<% end %>

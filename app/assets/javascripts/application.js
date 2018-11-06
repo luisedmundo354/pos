@@ -129,7 +129,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  $(".calculate-sale").click(function() {
+  $("#pay-with").change(function() {
     $.ajax({
       url: '/sale_orders/sale_results',
       type: 'POST'
