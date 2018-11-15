@@ -20,6 +20,12 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
+          <%= link_to result_path("dashboard"), { :class=>"nav-link" } do%>
+            <i class="fa fa-dashboard" aria-hidden="true"></i>
+          <%=t('Dashboard')%>
+          <%end%>
+        </li>
+        <li class="list-group-item">
           <%= link_to sale_orders_path, { :class=>"nav-link" } do%>
             <i class="fa fa-share-square-o" aria-hidden="true"></i>
             <%=t('Sale_orders')%>

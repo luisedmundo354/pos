@@ -14,4 +14,14 @@ class SaleOrder < ApplicationRecord
       end
     end
   end
+
+  def self.to_csv
+    CSV.generate(headers: true) do |csv|
+    csv << column_names
+    all.each do |sale_order|
+      csv << sale_order.attributes.merge(sale_order.customer.attributes).values_at(*column_names)
+    end
+  end
+end
+
 end

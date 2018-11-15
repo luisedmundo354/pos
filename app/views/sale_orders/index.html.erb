@@ -10,6 +10,14 @@
   </div>
 </div>
 
+<div class="">
+  <p>
+Download:
+<%= link_to "CSV", sale_orders_report_path(format: "csv") %>
+<%= link_to "Excel", sale_orders_report_path(format: "xls") %>
+  </p>
+</div>
+
 <table class="table">
   <thead>
     <tr>

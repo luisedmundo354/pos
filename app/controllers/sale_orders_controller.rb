@@ -71,6 +71,15 @@ class SaleOrdersController < ApplicationController
     end
   end
 
+  def report
+    @sale_orders = SaleOrder.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @sale_orders.to_csv }
+      format.xls
+    end
+  end
+
   private
     def set_order
       @sale_order = SaleOrder.find(params[:id])

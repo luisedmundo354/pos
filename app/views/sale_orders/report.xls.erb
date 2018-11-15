@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">ID</Data></Cell>
+        <Cell><Data ss:Type="String">Comment</Data></Cell>
+        <Cell><Data ss:Type="String">Number</Data></Cell>
+        <Cell><Data ss:Type="String">Customer</Data></Cell>
+        <Cell><Data ss:Type="String">Release date</Data></Cell>
+      </Row>
+    <% @sale_orders.each do |sale_order| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= sale_order.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= sale_order.comment %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= sale_order.number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= sale_order.customer.lname %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= sale_order.created_at %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
